@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Vibe Interactive Test">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://www.vibe-deploy.com.br/api/og/7">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Vibe Interactive Test">
+    <meta property="twitter:description" content="">
+    <meta property="twitter:image" content="https://www.vibe-deploy.com.br/api/og/7">
+    <link rel="icon" href="https://github.githubassets.com/favicons/favicon.png" />
+  
+  <meta charset="UTF-8">
+  <title>Vibe Interactive Test</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: -apple-system, sans-serif;
+      background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+      color: white;
+    }
+    .card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 24px;
+      padding: 48px 40px;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    }
+    h1 { font-size: 2.5rem; margin-bottom: 16px; }
+    .counter {
+      font-size: 5rem;
+      font-weight: bold;
+      margin: 24px 0;
+      font-variant-numeric: tabular-nums;
+      background: linear-gradient(180deg, #fff 0%, #a5b4fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .btn {
+      background: white;
+      color: #312e81;
+      border: none;
+      padding: 14px 36px;
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin: 4px;
+    }
+    .btn:hover { transform: scale(1.05); transition: transform 0.15s; }
+    .status {
+      margin-top: 20px;
+      padding: 12px;
+      background: rgba(0,0,0,0.2);
+      border-radius: 12px;
+      font-family: monospace;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🧪 Interactive Test</h1>
+    <div class="counter" id="count">0</div>
+    <button class="btn" id="inc">+1</button>
+    <button class="btn" id="reset">Reset</button>
+    <div class="status" id="status">Aguardando JS bootar...</div>
+  </div>
+  <script>
+    // Test 1: addEventListener (modern)
+    let n = 0;
+    const countEl = document.getElementById("count");
+    const statusEl = document.getElementById("status");
+    document.getElementById("inc").addEventListener("click", () => {
+      n++;
+      countEl.textContent = n;
+      statusEl.textContent = "addEventListener funcionou! n=" + n;
+    });
+    document.getElementById("reset").addEventListener("click", () => {
+      n = 0;
+      countEl.textContent = "0";
+      statusEl.textContent = "Reset";
+    });
+    statusEl.textContent = "✓ JS booted at " + new Date().toLocaleTimeString();
+    console.log("[vibe] interactive test booted");
+  </script>
+</body>
+</html>
